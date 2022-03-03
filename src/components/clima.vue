@@ -43,7 +43,7 @@
                         respuestaImg = await fetch(`http://api.weatherstack.com/current?access_key=8ab8bf8498c9cdc9cecb3cd0a9c4fe2c&query=${ct}`),
                         data = await respuesta.json(),
                         dataImg = await respuestaImg.json();
-                        console.log(dataImg.current);
+                        console.log(dataImg);
                     
                     this.ct = data.name;
                     this.desc = data.weather[0].description;
