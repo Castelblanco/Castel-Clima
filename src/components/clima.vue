@@ -44,7 +44,7 @@
                         data = await respuesta.json(),
                         dataImg = await respuestaImg.json();
                         console.log(dataImg.current.weather_icons[0]);
-                    this.$refs.img.setAttribute("src", dataImg.current.weather_icons[0]);
+                    
                     this.ct = data.name;
                     this.desc = data.weather[0].description;
                     this.temp = Math.round(data.main.temp);
