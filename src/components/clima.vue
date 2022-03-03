@@ -2,7 +2,6 @@
   <div class="clima">
     <div class="dprtmnt">
         <div>
-            <h1>dfdfjb</h1>
             <input class="depart"  type="text" v-model="dprtmnt" v-on:keyup.enter="dprtmnt.length >2 ?pedirTiempo(dprtmnt) :error = 'La ciudad que buscas no esta registrada'">
             <button :class="[{'btn-ctv': dprtmnt.length > 2},'btn-nctv']"  v-on:click.enter="dprtmnt.length >2 ?pedirTiempo(dprtmnt) :error = 'La ciudad que buscas no esta registrada'">Chequear</button>
         </div>
