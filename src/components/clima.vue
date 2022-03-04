@@ -40,11 +40,9 @@
             async pedirTiempo(ct){
                 try{
                     let respuesta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ct}&units=metric&lang=es&appid=631b7ccc8feaac7191f5011c66d1e376`),
-                        respuestaImg = await fetch(`http://api.weatherstack.com/current?access_key=d39460abaeedb310a8e0c6bd33a0daa9&query=${ct}`),
                         data = await respuesta.json(),
-                        dataImg = await respuestaImg.json();
-                        console.log(dataImg);
-                    
+                        urlImg = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+                    this.$refs.img.setAttribute("src", urlImg);
                     this.ct = data.name;
                     this.desc = data.weather[0].description;
                     this.temp = Math.round(data.main.temp);
@@ -128,6 +126,12 @@
 
     .desc{
         display: block;
+    }
+    
+    .desc > img{
+        width: 15vw;
+        max-width: 100px;
+        margin: 10px auto;
     }
 
     @media screen and (max-width:680px) {
