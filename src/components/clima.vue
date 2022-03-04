@@ -7,7 +7,7 @@
         </div>
         <b>{{error}}</b>
     </div>
-    <div :class="[{'info':ct != ''},'infoNo']">
+    <div class="info">
         <div class="desc">
             <b>{{ct}}</b>
             <img ref="img" alt="Imagen del clima">
@@ -38,7 +38,7 @@
         },
         methods: {
             async pedirTiempo(ct){
-                
+                try{
                     let respuesta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ct}&units=metric&lang=es&appid=631b7ccc8feaac7191f5011c66d1e376`),
                         respuestaImg = await fetch(`http://api.weatherstack.com/current?access_key=8ab8bf8498c9cdc9cecb3cd0a9c4fe2c&query=${ct}`),
                         data = await respuesta.json(),
@@ -52,8 +52,13 @@
                     this.vnt = data.wind.speed;
                     this.error = "";
                     this.dprtmnt = "";
-
+                }catch(e){
+                  this.error = "La ciudad que buscas no esta registrada";
+                }
             }
+        },
+        created(){
+          this.pedirTiempo("bogota");
         }
     }
 </script>
@@ -119,10 +124,6 @@
         margin: 30px auto;
         padding: 10px 0;
         box-shadow: 5px 4px 8px #000;
-    }
-
-    .infoNo{
-        display: none;
     }
 
     .desc{
