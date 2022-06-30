@@ -14,8 +14,8 @@
             <p>{{desc}}</p>
         </div>
         <div class="datos">
-            <p>Temperatira: {{temp}}°C</p>
-            <p>Presion: {{prsn}} hPa</p>
+            <p>Temperatura: {{temp}}°C</p>
+            <p>Presión: {{prsn}} hPa</p>
             <p>Viento: {{vnt}} m/s</p>
         </div>
     </div>
